@@ -4,6 +4,7 @@ import Dotenv from 'dotenv-webpack';
 import InterpolateHtmlPlugin from 'react-dev-utils/InterpolateHtmlPlugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { managerPath } from '@storybook/core/server';
+import { VueLoaderPlugin } from 'vue-loader';
 import babelLoaderConfig from './babel.prod';
 import { includePaths, excludePaths, loadEnv, nodePaths } from './utils';
 import { getPreviewHeadHtml, getManagerHeadHtml } from '../utils';
@@ -63,6 +64,7 @@ export default function(configDir) {
         },
       }),
       new Dotenv({ silent: true }),
+      new VueLoaderPlugin(),
     ],
     module: {
       rules: [

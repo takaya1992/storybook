@@ -6,6 +6,7 @@ import WatchMissingNodeModulesPlugin from 'react-dev-utils/WatchMissingNodeModul
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { managerPath } from '@storybook/core/server';
+import VueLoaderPlugin from 'vue-loader';
 
 import { includePaths, excludePaths, nodeModulesPaths, loadEnv, nodePaths } from './utils';
 import { getPreviewHeadHtml, getManagerHeadHtml } from '../utils';
@@ -53,6 +54,7 @@ export default function(configDir, quiet) {
       new WatchMissingNodeModulesPlugin(nodeModulesPaths),
       quiet ? null : new webpack.ProgressPlugin(),
       new Dotenv({ silent: true }),
+      new VueLoaderPlugin(),
     ].filter(Boolean),
     module: {
       rules: [

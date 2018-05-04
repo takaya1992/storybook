@@ -6,6 +6,7 @@
     "url": "https://github.com/storybooks/storybook.git"
   },
   "scripts": {
+    "install": "npm install && cd app/vue && npm install",
     "bootstrap": "node ./scripts/bootstrap.js",
     "bootstrap:crna-kitchen-sink": "npm --prefix examples/crna-kitchen-sink install",
     "bootstrap:docs": "yarn install --cwd docs",
